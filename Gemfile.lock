@@ -1,0 +1,26 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    pg (1.4.4)
+    rack (3.0.0)
+    rack-unreloader (2.0.0)
+    rake (13.0.6)
+    roda (3.61.0)
+      rack
+    sequel (5.61.0)
+    sequel_pg (1.17.0)
+      pg (>= 0.18.0, != 1.2.0)
+      sequel (>= 4.38.0)
+
+PLATFORMS
+  arm64-darwin-20
+
+DEPENDENCIES
+  rack-unreloader (>= 1.8)
+  rake
+  roda (>= 3.57)
+  sequel (>= 5.59)
+  sequel_pg (>= 1.8)
+
+BUNDLED WITH
+   2.3.24
