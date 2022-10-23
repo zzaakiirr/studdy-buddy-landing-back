@@ -35,6 +35,18 @@ end
 
 desc 'Setup project'
 task :setup do
-  env_variables_line = "ENV['STUDDY_BUDDY_DATABASE_URL'] ||= 'postgres:///studdy_buddy?user=studdy_buddy'\n"
-  File.open('.env.rb', 'w') { |file| file.write(env_variables_line) }
+  create_dot_env_file
+  create_logs_dir if ENV['RACK_ENV'] == 'production'
+end
+
+def self.create_dot_env_file
+  File.open('.env.rb', 'w') do |file|
+    file.write("ENV['STUDDY_BUDDY_DATABASE_URL'] ||= 'postgres:///studdy_buddy?user=studdy_buddy'\n")
+  end
+end
+
+def self.create_logs_dir(dir = 'logs')
+  return if Dir.exist?(dir)
+
+  Dir.mkdir(dir)
 end
